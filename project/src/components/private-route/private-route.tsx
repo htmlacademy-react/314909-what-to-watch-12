@@ -13,7 +13,7 @@ function PrivateRoute(props: PrivateRouteProps): JSX.Element {
   return (
     authorizationStatus === AuthorizationStatus.Auth
       ? children
-      : <Navigate to={Path.SignIn} />
+      : <Navigate to={Path.Login} />
   );
 }
 
