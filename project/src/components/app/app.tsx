@@ -8,9 +8,9 @@ import Player from '../../pages/player/player';
 import { Path } from '../../const';
 import PrivateRoute from '../private-route/private-route';
 import { AuthorizationStatus } from '../private-route/const';
-import MyList from '../../pages/film-list/film-list';
+import FilmList from '../../pages/film-list/film-list';
 
-const { MainPage, Login, Films, PlayerPage, PageNotFound, MyListPage } = Path;
+const { Main, SignIn, Films, Player, NotFound, FilmList } = Path;
 
 type AppProps = {
   filmName: string;
@@ -19,7 +19,28 @@ type AppProps = {
 }
 
 function App({ filmName, yearFilm, filmGenre }: AppProps): JSX.Element {
-  return <Main filmName={filmName} yearFilm={yearFilm} filmGenre={filmGenre} />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path={Main}>
+          <Route index element={<Main filmName={filmName} yearFilm={yearFilm} filmGenre={filmGenre} />} />
+          <Route path={SignIn} element={<SignIn />} />
+          <Route path={Films.Main}>
+            <Route index element={<MoviePage />} />
+            <Route path={Films.Review} element={<AddReview />} />
+          </Route>
+          <Route path={Player} element={<Player />} />
+          <Route path={FilmList} element={
+            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
+              <FilmList />
+            </PrivateRoute>
+          }
+          />
+        </Route>
+        <Route path={NotFound} element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
