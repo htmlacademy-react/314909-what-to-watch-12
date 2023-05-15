@@ -1,5 +1,3 @@
-import { JSXElement } from "@babel/types";
-
 function MoviePage(): JSX.Element {
   return (
     <>
@@ -152,6 +150,6 @@ function MoviePage(): JSX.Element {
       </div>
     </>
   );
-};
+}
 
 export default MoviePage;

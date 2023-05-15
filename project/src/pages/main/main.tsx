@@ -6,7 +6,7 @@ type MainProps = {
   filmGenre: string;
 }
 
-let Main = ({ filmName, yearFilm, filmGenre }: MainProps) => {
+function Main({ filmName, yearFilm, filmGenre }: MainProps): JSX.Element {
   return (
     <>
       <section className="film-card">
@@ -121,6 +121,6 @@ let Main = ({ filmName, yearFilm, filmGenre }: MainProps) => {
       </div>
     </>
   );
-};
+}
 
 export default Main;

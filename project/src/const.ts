@@ -1,11 +1,11 @@
 export const Path = {
-  Main: '/',
-  SignIn: '/login',
+  MainPage: '/',
+  Login: '/login',
   Films: {
-    Main: 'films/:id/',
+    MainPage: 'films/:id/',
     Review: 'review'
   },
-  Player: 'player/:id',
-  FilmList: 'filmlist',
-  NotFound: '*'
+  PlayerPage: 'player/:id',
+  MyList: 'filmlist',
+  NotFoundPage: '*'
 } as const;
